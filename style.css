@@ -1,0 +1,18 @@
+body{
+    background: url(../images/boga.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+  
+}
+.form{
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid black;
+    padding: 40px;
+    background: rgba(164, 165, 165, 0.58);
+}

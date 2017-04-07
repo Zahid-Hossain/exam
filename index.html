@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>form validation</title>
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    
+    
+ </head>
+ <body>
+   
+ 
+       <div class="form">
+          <p><b>LogIn</b></p>
+           <form action="">
+               <div class="form-group">
+                  <input type="text" class="form-control" id="user" placeholder="Type your username"><span class="second"></span>
+               </div>
+               <div class="form-group">
+                  <input type="password" class="form-control" id="status" placeholder="Password"><span class="first"></span>
+               </div>
+               <div class="form-group">
+                  <a href="#" class="btn btn-danger" id="reset">Reset</a>
+                  <input type="submit" class="btn btn-success pull-right" id="login" value="Login">
+               </div>
+           </form>
+       </div>
+
+   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    
+    <script>
+        
+    
+//    username validation      
+        
+        $(function(){
+            $('#login').click(function(){
+                
+                var username=$('#user').val();
+                var password=$('#status').val();
+                
+                if(username=="")
+                    {
+                        $('.second').slideDown().html("<b>Please type Username</b>");
+                        return false;
+                    }
+                if(password=="")
+                    {
+                        $('.first').slideDown().html("<b>Please type Username</b>");
+                        return false;
+                    }
+               
+            });
+        });
+        
+        
+        $(function(){
+            $('#login').click(function(){
+                
+                var password=$('#status').val();
+                
+                if(password=="")
+                    {
+                        $('.first').slideDown().html("<b>Please type Password</b>");
+                        return false;
+                    }
+               
+            });
+        });
+        
+    
+        
+//        password strength  
+        
+        
+        $(function(){
+            $("#status").keyup(function(){
+                var len = $("#status").val().length;
+                
+                if(len < 1){
+                    $(".first").html("<b>Please type your password</b>");
+                }
+                
+                
+                else if(len <= 4){
+                    $(".first").html("<b>Weak</b>");
+                    
+                }
+                
+                else if(len <= 8){
+                        $(".first").html("<b>Good</b>");
+                }
+                
+                else if (len > 8){
+                    $(".first").html("<b>Strong</b>");
+                }
+                
+            });
+        });
+        
+        
+//        reset data 
+        
+        $("#reset").click(function() {
+            $(this).closest('form').find("input[type=text], textarea").val("");
+            $(this).closest('form').find("input[type=password], password").val("");
+          });
+        
+     </script>
+</body>
+</html>
